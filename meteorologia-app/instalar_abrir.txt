@@ -1,0 +1,12 @@
+Executar projeto no Windows:
+
+1- ter node.js download
+2- abrir consola de comandos (cmd ou terminal no Visual Studio )
+3- localizar a pasta "meteorologia-app" (cd "localização")
+4- Com o terminal dentro da pasta meteorologia-app:
+	1- Se executar pela primeira vez:
+		-npm install
+		-node src/app.js
+	2- Se não for a primeira fez:
+		-node src/app.js
+5- abrir a página num browser em http://localhost:3000/

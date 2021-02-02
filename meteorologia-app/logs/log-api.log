@@ -1,0 +1,21 @@
+{"message":"Server is up and running","level":"info"}
+info: Server is up and running
+info: Server is up and running on 3000
+info: Cidade: Aveiro, Temperatura: 287.59
+info: Cidade: Lisbon, Temperatura: 287.71
+[2021-02-01T21:28:29.883Z] info Server is up and running on 3000
+[2021-02-01T21:29:10.683Z] info Cidade: Aveiro, Temperatura: 287.59
+[2021-02-01T21:31:46.242Z] info Server is up and running on port 3000
+[2021-02-01T21:32:03.781Z] info Cidade: Lisbon, Temperatura: 13.99°
+[2021-02-01T21:32:32.565Z] info Cidade: Aveiro, Temperatura: 14.09°
+[2021-02-02T11:43:41.956Z] info Server is up and running on port 3000
+[2021-02-02T12:21:53.135Z] info Cidade: Lisbon, Temperatura: 15.42°
+[2021-02-02T12:25:39.626Z] info Cidade: Lisbon, Temperatura: 15.42°
+[2021-02-02T12:26:09.115Z] info Cidade: Tokyo, Temperatura: 6.64°
+[2021-02-02T12:27:14.087Z] info Cidade: Lisbon, Temperatura: 15.42°
+[2021-02-02T12:27:22.006Z] info Cidade: Coimbra, Temperatura: 14.31°
+[2021-02-02T12:27:28.484Z] info Cidade: Madrid, Temperatura: 11.09°
+[2021-02-02T12:28:58.442Z] info Cidade: Evora, Temperatura: 14.65°
+[2021-02-02T12:29:09.399Z] info Cidade: Funchal, Temperatura: 15.84°
+[2021-02-02T12:32:24.819Z] info Server is up and running on port 3000
+[2021-02-02T12:32:37.936Z] info Cidade: Aveiro, Temperatura: 14.97°

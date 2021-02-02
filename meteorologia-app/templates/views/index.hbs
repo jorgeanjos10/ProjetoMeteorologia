@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        
+        <link rel="stylesheet" href="css/styles.css"/> <!-- static path for public folder is already set in app.js -->
+        {{!-- <link rel="stylesheet" href="css/meucss.css" /> --}}
+         
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+        <!-- Google Fonts Roboto -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- Material Design Bootstrap -->
+        <link rel="stylesheet" href="css/mdb.min.css">
+        <!-- Your custom styles (optional) -->
+        <link rel="stylesheet" href="css/style.css">
+        
+        <link href="css/addons/datatables.min.css" rel="stylesheet">
+    </head>
+    <body>
+
+        
+
+        <div class="main-content">
+            {{>header}}
+            <article class="widget">
+                <form class="weatherLocation">
+                    <input placeholder="location..." type = "text"/><button>Procurar</button>
+                </form>
+                <div class="weatherIcon"><i class="wi wi-day-cloudy"></i></div>
+                <div class="weatherInfo">
+                    <div class="temperature"><span></span></div>
+                    <div class="description">    
+                        <div class="weatherCondition"></div>    
+                        <div class="place"></div>
+                    </div>
+                </div>
+                <div class="date"></div>
+            </article>
+
+            
+        </div>
+
+
+        
+
+        <div class="main-content">
+          {{!-- <button id="addRow">Add new row</button> --}}
+            <div class="container">
+                <div class="row">
+
+                    
+                    
+                    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                        <th>Nome</th>
+                        <th>Temperatura</th>
+                        <th>Amanhecer</th>
+                        <th>Anoitecer</th>
+                        <th>País</th>
+                        
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                        <th>Nome</th>
+                        <th>Temperatura</th>
+                        <th>Amanhecer</th>
+                        <th>Anoitecer</th>
+                        <th>País</th>
+                        
+                        </tr>
+                    </tfoot>
+                    <tbody class="tabelabody">
+                        {{!-- <tr>
+                        <td>Aveiro</td>
+                        <td>42</td>
+                        <td>08:00</td>
+                        <td>17:00</td>
+                        <td>PT</td>
+                        </tr> --}}
+                        
+                        {{!-- 
+                        <tr>
+                        <td>Lisboa</td>
+                        <td>34</td>
+                        <td>08:30</td>
+                        <td>17:30</td>
+                        <td>18:06</td>
+                        
+                        </tr>
+                        <tr>
+                        <td>Madrid</td>
+                        <td>18</td>
+                        <td>07:00</td>
+                        <td>16:00</td>
+                        <td>19:05</td>
+                        
+                        </tr>
+                         <tr>
+                        <td>Paris</td>
+                        <td>16</td>
+                        <td>08:15</td>
+                        <td>17:15</td>
+                        <td>20:05</td>
+                        
+                        </tr> --}}
+                        
+                        
+                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        {{!-- <div class="main-content">
+            <div class="container">
+                <div class="row">
+                
+                    <canvas id="canvasTeste"></canvas>
+
+                </div>
+            </div>
+        </div> --}}
+
+        <br>
+
+        <div class="main-content">
+            
+                
+                    <canvas id="colunas"></canvas>
+
+                
+        </div>
+
+        
+
+        
+
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="js/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="js/mdb.min.js"></script>
+        <!-- Your custom scripts (optional) -->
+        
+        
+        <script type="text/javascript" src="js/addons/datatables.min.js"></script>
+        
+        
+
+        
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.7/chartjs-plugin-annotation.min.js"></script>
+
+        <script>
+
+
+        var ctx = document.getElementById( "canvasTeste" );
+      ctx.height = 150;
+
+
+            var data1 = [
+            {
+              x: new moment("2020-03-19 09:35"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-19 10:00"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-19 12:20"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-19 13:10"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-19 15:57"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-19 19:03"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-20 00:10"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-20 01:37"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-20 03:15"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+          ];
+
+          var data2 = [
+            {
+              x: new moment("2020-03-19 09:35"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-19 10:00"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-19 12:20"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-19 13:10"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-19 15:57"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-19 19:03"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-20 00:10"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-20 01:37"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+            {
+              x: new moment("2020-03-20 03:15"),
+              y: (Math.random() * 500).toFixed(2)
+            },
+          ];
+
+          
+
+          var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              datasets: [{
+                label: "Custo de Energia",
+                data: data1,
+                borderColor: "rgba(255,0,0)",
+                borderWidth: "1",
+                backgroundColor: "rgba(255,0,0,.4)",
+                lineTension: 0, 
+                fill: true
+              },
+              {
+                label: "Custo de Energia (Previsão)",
+                data: data2,
+                borderColor: "rgba(0,0,0,.4)",
+                borderWidth: "1",
+                backgroundColor: "rgba(0,0,0,.2)",
+                lineTension: 0, 
+                fill: true
+              }
+              ]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        /*scaleLabel: {
+                                display: true,
+                                labelString: 'Hora'
+                            },*/
+                        time: {
+                            //label: 'Hora',
+                            unit: 'hour',
+                            tooltipFormat: 'YYYY-MM-DD HH:mm',
+                            displayFormats: {
+                                millisecond: 'HH:mm:ss.SSS',
+                                second: 'HH:mm:ss',
+                                minute: 'HH:mm',
+                                hour: 'HH:mm'
+                            },
+                            /*display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Time'
+                            }*/
+                            
+                            
+                        },
+
+                        ticks: {
+                                // Include a dollar sign in the ticks
+                                callback: function(value, index, values) {
+                                    return value + 'h';
+                                }
+                            }
+                        /*time: {
+                            parser: timeFormat,
+                            // round: 'day'                                                                                                                                                                            
+                            tooltipFormat: 'YYYY-MM-DD HH:mm',
+                            displayFormats: {
+                                millisecond: 'HH:mm:ss.SSS',
+                                second: 'HH:mm:ss',
+                                minute: 'HH:mm',
+                                hour: 'HH'
+                            }
+                        }*/
+                    }],
+
+                    yAxes: [{
+                            /*scaleLabel: {
+                                display: true,
+                                labelString: 'probability'
+                            }*/
+
+                            ticks: {
+                                // Include a dollar sign in the ticks
+                                callback: function(value, index, values) {
+                                    return value + '€';
+                                }
+                            }
+                            }]
+                    
+                },
+                responsive: true,
+                tooltips: {
+                    mode: 'nearest',
+                    intersect: false
+                }
+                
+            }
+          });
+
+        </script>
+
+        <script>
+
+            /*
+            function addData(chart, label, data) {
+                chart.data.labels.push(label);
+                chart.data.datasets.forEach((dataset) => {
+                    dataset.data.push(data);
+                });
+                chart.update();
+            }
+            */
+
+            var meses = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+            var dataAtual = new Date().getDate() + " " + meses[new Date().getMonth()].substring(0, 3);
+
+            function random_rgba() {
+                var o = Math.round, r = Math.random, s = 255;
+                return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+            }
+
+            var color1 = random_rgba();
+            var color2 = random_rgba();
+
+
+    var dataColunas = {
+            labels: [ dataAtual ],
+            datasets: [
+                        /*{
+                            label: "My First dataset",
+                            data: [ 65 ],
+                            borderColor: color1,
+                            borderWidth: "0",
+                            backgroundColor: color1
+                                    },
+                        {
+                            label: "My Second dataset",
+                            data: [ 28],
+                            borderColor: color2,
+                            borderWidth: "0",
+                            backgroundColor: color2
+                                    }*/
+                        ]
+        };
+
+            //bar chart
+    var ctx = document.getElementById( "colunas" );
+        ctx.height = 200;
+        ctx.width = 600;
+    var chartColunas = new Chart( ctx, {
+        type: 'bar',
+        data: dataColunas,
+
+        options: {
+                scales: {
+
+                    yAxes: [{
+                            /*scaleLabel: {
+                                display: true,
+                                labelString: 'probability'
+                            }*/
+
+                            ticks: {
+                                // Include a dollar sign in the ticks
+                                beginAtZero: true,
+                                callback: function(value, index, values) {
+                                    return value + ' ºC';
+                                }
+                            }
+                            }]
+                    
+                },
+                responsive: true,
+                tooltips: {
+                    mode: 'nearest',
+                    intersect: false
+                }
+                
+            }
+
+        
+        } );
+
+        addData(chartColunas, label, data);
+
+        </script>
+
+
+        <script src="js/app.js"></script> <!-- absolute path -->
+        <!--
+        <script src="js/meujs.js"></script>
+        -->
+
+    </body>
+</html>
