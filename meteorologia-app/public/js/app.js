@@ -19,11 +19,7 @@ const monthNames = ["January", "February", "March", "April", "May", "June", "Jul
 dateElement.textContent = new Date().getDate() + ", " + monthNames[new Date().getMonth()].substring(0, 3);
 
 
-// $(document).ready(function() {
-//     $('#example').DataTable();
- 
-    
-// } );
+
 
 
 
@@ -82,9 +78,7 @@ weatherForm.addEventListener('submit', (event) => {
                 weatherCondition.textContent = data.description.toUpperCase();
                 locationElement.textContent = data.cityName;
 
-                // tabelabodyElement.append("<tr><td>Nova York</td><td>55</td><td>06:00</td><td>15:00</td><td>13:40</td></tr>")
-                
-                //$( ".tabelabody" ).append( "<tr><td>" + data.cityName + "</td><td>" + (data.temperature - 273.5).toFixed(2) + String.fromCharCode(176) + "</td><td>" + calcularHora(data.amanhecer) + "h </td><td>" + calcularHora(data.anoitecer) + "h </td><td>" + data.pais + "</td></tr>" );
+                //adicionar cidade à tabela
                 
                 t.row.add( [
                     data.cityName,
@@ -93,13 +87,15 @@ weatherForm.addEventListener('submit', (event) => {
                     calcularHora(data.anoitecer),
                     data.pais
                 ] ).draw( false );
-                // $("#example").DataTable();
+                
 
                 var tempCelcius = (data.temperature - 273.5).toFixed(2);
 
                 console.log(tempCelcius);
 
                 var color3 = random_rgba();
+
+                // adicionar cidade ao gráfico
 
                 var newDataset = {
                     label: data.cityName,
@@ -119,3 +115,5 @@ weatherForm.addEventListener('submit', (event) => {
         }) 
     });
 })
+
+

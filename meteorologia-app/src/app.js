@@ -28,11 +28,7 @@ app.get('', (req, res) => {
     })
 })
 
-// app.get('', (req, res) => {
-//     res.render('testar', {
-//         title: 'Weather App'
-//     })
-// })
+
 
 //localhost:3000/weather?address=lahore
 app.get('/weather', (req, res) => {
@@ -69,14 +65,6 @@ app.get("*", (req, res) => {
         title: "page not found"
     })
 })
-
-
-// app.listen(port, () => {
-//     console.log("Server is up and running on port: ", port);
-
-// })
-
-// app.listen(port, () => logger.info('Server running'));
 
 app.listen(port, () => {
     logger.info("Server is up and running on port " + port);
